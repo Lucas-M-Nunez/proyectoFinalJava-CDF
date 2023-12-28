@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ropa</title>
+</head>
+<body>
+<nav>
+    <h1><a th:href="@{/}">inicio</a></h1>
+    <h1><a th:href="@{/electronico}">Electrónicos</a></h1>
+    <h2><a th:href="@{/comestible}">Comestibles</a> </h2>
+</nav>
+<div class="container">
+    <h1>Ropa</h1>
+    <div class="producto">
+        <span>N°</span>
+        <span>Nombre</span>
+        <span>Marca</span>
+        <span>Color</span>
+        <span>Talle</span>
+        <span>Precio</span>
+    </div>
+    <div class="producto" th:each="prenda,index : ${prendas}">
+        <span class="posicion" th:text="${index.index}"></span>
+        <span class="nombre" th:text="${prenda.nombre}"></span>
+        <span class="marca" th:text="${prenda.marca}"></span>
+        <span class="talle" th:text="${prenda.talle}"></span>
+        <span class="color" th:text="${prenda.description}"></span>
+        <span class="precio" th:text="${prenda.CalcularPrecio()}"></span>
+    </div>
+
+</div>
+
+</body>
+</html>

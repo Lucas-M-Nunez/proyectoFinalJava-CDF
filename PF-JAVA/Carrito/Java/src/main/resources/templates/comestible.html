@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Comestibles</title>
+</head>
+<body>
+<nav>
+    <h1><a th:href="@{/}">inicio</a></h1>
+    <h1><a th:href="@{/electronico}">Electronicos</a></h1>
+    <h2><a th:href="@{/ropa}">Ropa</a> </h2>
+</nav>
+<div class="container">
+    <h1>Comestibles</h1>
+    <div class="producto">
+        <span>N°</span>
+        <span>Nombre</span>
+        <span>Precio</span>
+    </div>
+    <div class="producto" th:each="comestible,index : ${comestibles}">
+        <span class="posicion" th:text="${index.index}"></span>
+        <span class="nombre" th:text="${comestible.nombre}"></span>
+        <span class="precio" th:text="${comestible.CalcularPrecio()}"></span>
+    </div>
+
+</div>
+</body>
+</html>
